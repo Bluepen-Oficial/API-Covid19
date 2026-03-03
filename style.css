@@ -1,0 +1,11 @@
+#resultadoConexao {
+    color: rgb(24, 235, 24);
+    text-shadow: 5px 5px white;
+    position: fixed;
+    background-color: red;
+    height: 55px;
+    width: 55px;
+    top: 0;
+    right: 0;
+    margin: 5px;
+}
