@@ -49,8 +49,5 @@ btnData.addEventListener('click', ()=> {
  })
 
 mostrarSituacao ();
-<<<<<<< HEAD
+casosPorTodoEstado()
 casosPorTodoEstado();
-=======
-casosPorTodoEstado();
->>>>>>> 6f4733c2db321b8efd912414697ab1033d1adb61
