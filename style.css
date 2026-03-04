@@ -1,11 +1,36 @@
 #resultadoConexao {
     color: rgb(24, 235, 24);
-    text-shadow: 5px 5px white;
+    text-shadow: 1px 1px white;
     position: fixed;
-    background-color: red;
-    height: 55px;
-    width: 55px;
     top: 0;
-    right: 0;
+    right: 5px;
     margin: 5px;
+    background-color: black;
+    padding: 5px;
+}
+
+header {
+    background-color: rgb(60, 255, 53);
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    align-items: center;
+    padding: 1rem;
+}
+
+ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.menuLateral {
+    position: relative;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menuLateral:hover {
+    color: rgb(29, 29, 29);
+    text-shadow: 2px 2px white;
 }
