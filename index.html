@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API-Covid19</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="https://www.gov.br/saude/pt-br/vacinacao/imagens/vacina-icone.png/@@images/image" type="image/x-icon">
+    <link rel="shortcut icon" href="https://www.gov.br/saude/pt-br/vacinacao/imagens/vacina-icone.png/@@images/image"
+        type="image/x-icon">
 </head>
+
 <body>
+    <header>
+        <nav id="menu">
+            <ul>
+                <li class="menuLateral" href="#resultadoRankEstados">Caso Estados BR</li>
+                <li class="menuLateral" href="#resultadoEstado">Caso por Estado</li>
+                <li class="menuLateral" href="#resultadoPaises">Caso América Latina</li>
+                <li class="menuLateral" href="#resultadoRankPaises">Casos por Países</li>
+            </ul>
+        </nav>
+    </header>
+
     <div id="resultadoConexao"></div>
+
+    <div id="resultadoRankEstados">
+        <input type="date" id="receberData">
+    </div>
+    <div id="resultadoEstado"></div>
+    <div id="resultadoPaises"></div>
+    <div id="resultadoRankPaises"></div>
     <script src="script.js"></script>
 </body>
+
 </html>
