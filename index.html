@@ -8,25 +8,39 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="https://www.gov.br/saude/pt-br/vacinacao/imagens/vacina-icone.png/@@images/image"
         type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <header>
         <nav id="menu">
             <ul>
-                <li class="menuLateral" href="#resultadoRankEstados">Caso Estados BR</li>
-                <li class="menuLateral" href="#resultadoEstado">Caso por Estado</li>
-                <li class="menuLateral" href="#resultadoPaises">Caso América Latina</li>
-                <li class="menuLateral" href="#resultadoRankPaises">Casos por Países</li>
+                <img src="https://images.vexels.com/media/users/3/193295/isolated/preview/70b06d5888de4fa09d2e3bed5c992311-icone-de-desenho-animado-da-covid-19.png"
+                    alt="Planeta de Mascara" id="logo">
+                <li class="menuLateral" href="#resultadoRankEstados" id="rankEstados">Caso Estados BR</li>
+                <li class="menuLateral" href="#resultadoEstado" id="estadosIsolados">Caso Estado</li>
+                <li class="menuLateral" href="#resultadoPaises" id="casosAmerica">Caso América Latina</li>
+                <li class="menuLateral" href="#resultadoRankPaises" id="paisesIsolados">Casos Países</li>
             </ul>
         </nav>
     </header>
 
-    <div id="resultadoConexao"></div>
+    <div id="resultadoConexao">OFFLINE</div>
 
     <div id="resultadoRankEstados">
-        <input type="date" id="receberData">
-        <button type="submit" id="btnData">confirmar</button>
+        <p id="infosRank">Utilize essa página para ranquear os estados brasileiros que tiveram mais casos ou mortes.</p>
+        <label for="titulo">Selecione o que deseja ranquear:</label>
+        <button id="btnCasos">Ranquear Casos</button>
+        <!-- <button id="btnMortes">Ranquear Mortes</button> -->
+        <!-- <input type="date" id="receberData"> -->
+        <!-- <button id="btnData">Confirmar Data</button> -->
+
+        <div id="grafico">
+            <canvas id="myChart"></canvas>
+            <p id="erroRank"></p>
+        </div>
+        <p id="analisRank"></p>
+
     </div>
     <div id="resultadoEstado"></div>
     <div id="resultadoPaises"></div>
@@ -35,9 +49,3 @@
 </body>
 
 </html>
-
-</html>
-<<<<<<< HEAD
-=======
-
->>>>>>> 6f4733c2db321b8efd912414697ab1033d1adb61
