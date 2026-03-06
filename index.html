@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="https://www.gov.br/saude/pt-br/vacinacao/imagens/vacina-icone.png/@@images/image"
         type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -31,9 +32,8 @@
         <p id="infosRank">Utilize essa página para ranquear os estados brasileiros que tiveram mais casos ou mortes.</p>
         <label for="titulo">Selecione o que deseja ranquear:</label>
         <button id="btnCasos">Ranquear Casos</button>
-        <!-- <button id="btnMortes">Ranquear Mortes</button> -->
-        <!-- <input type="date" id="receberData"> -->
-        <!-- <button id="btnData">Confirmar Data</button> -->
+        <button id="btnMortes">Ranquear Mortes</button>
+        <button id="btnRelacao">Relação Casos/Mortes</button>
 
         <div id="grafico">
             <canvas id="myChart"></canvas>
@@ -46,6 +46,10 @@
     <div id="resultadoPaises"></div>
     <div id="resultadoRankPaises"></div>
     <script src="script.js"></script>
+
+    <footer id="rodape">
+        <p>Dados fornecidos por Covid19 Brazil API | © 2026</p>
+    </footer>
 </body>
 
 </html>

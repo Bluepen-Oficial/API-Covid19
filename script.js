@@ -1,29 +1,31 @@
 // Criando variaveis
-const situacao = document.querySelector("#resultadoConexao")
-const InformarData = document.querySelector("#receberData")
-const btnData = document.querySelector("#btnData")
+const situacao = document.querySelector("#resultadoConexao");
+const InformarData = document.querySelector("#receberData");
+const btnRelacao = document.querySelector("#btnRelacao");
+let graficoBarras;
 
 // Criando variaveis do menu superior
 const rankEstados = document.querySelector("#rankEstados");
 const estadosIsolados = document.querySelector("#estadosIsolados");
 const casosAmerica = document.querySelector("#casosAmerica");
 const paisesIsolados = document.querySelector("#paisesIsolados");
+const menuLateral = document.querySelector('.menuLateral');
 
 // Criando variaveis Rank Estados
 const erroRank = document.querySelector("#erroRank");
 const btnCasos = document.querySelector("#btnCasos");
 const btnMortes = document.querySelector("#btnMortes");
+const graficoEstados = document.querySelector("#myChart");
 let siglaEstados = [];
 let armazenarCasos = [];
 let armazenarMortes = [];
+let armazenarRelacao = [];
+let valor = 0;
 
 btnCasos.addEventListener('click', () => { casosPorTodoEstado('Casos') });
-// btnMortes.addEventListener('click', () => { casosPorTodoEstado('Mortes') });
-// btnData.addEventListener('click', () => {
-//     // console.log(InformarData.value.replace(/-/g, ""));
-//     // casosPorData(InformarData.value.replace(/-/g, ""))
-//     limparGrafico(graficoBarras);
-// });
+btnMortes.addEventListener('click', () => { casosPorTodoEstado('Mortes') });
+btnRelacao.addEventListener('click', () => { casosPorTodoEstado('Relacao') });
+menuLateral.addEventListener('click', () => {alert("Em breve...")});
 
 rankEstados.addEventListener('click', () => {
 
@@ -55,17 +57,31 @@ function casosPorTodoEstado(busca) {
             console.log(casosPorEstado.data.length)
             console.log(casosPorEstado);
 
-            for (let i = 0; i < casosPorEstado.data.length; i++) {
-                console.log(`Entrou no for `);
-                siglaEstados.push(casosPorEstado.data[i].uf);
-                armazenarCasos.push(casosPorEstado.data[i].cases);
-                armazenarMortes.push(casosPorEstado.data[i].deaths);
+            if (valor == 0) {
+                for (let i = 0; i < casosPorEstado.data.length; i++) {
+                    console.log(`Entrou no for `);
+                    siglaEstados.push(casosPorEstado.data[i].uf,);
+                    armazenarCasos.push(casosPorEstado.data[i].cases);
+                    armazenarMortes.push(casosPorEstado.data[i].deaths * 5);
+                    armazenarRelacao.push(Math.round((casosPorEstado.data[i].cases/casosPorEstado.data[i].deaths)));
+                    valor++;
+                }
             }
 
             console.log(`A > ${busca}, ${siglaEstados}, ${armazenarCasos}}`);
 
+            if (graficoBarras) {
+                graficoBarras.destroy();
+            }
 
-            busca == 'Casos' ? exibirGrafico(busca, siglaEstados, armazenarCasos) : exibirGrafico(busca, siglaEstados, armazenarMortes);
+            if (busca == 'Casos') { 
+                exibirGrafico(busca, siglaEstados, armazenarCasos);
+            } if (busca == 'Mortes') {
+                exibirGrafico(busca, siglaEstados, armazenarMortes);
+            } if (busca == 'Relacao') { 
+                exibirGrafico(busca, siglaEstados, armazenarRelacao); 
+            }
+
 
         })
         .catch(() => {
@@ -85,9 +101,7 @@ function casosPorData(data) {
 
 function exibirGrafico(busca, siglas, dados) {
     console.log(`B > ${busca}, ${siglas}, ${dados}}`);
-    
-    const graficoEstados = document.querySelector("#myChart");
-    
+
     graficoBarras = new Chart(graficoEstados, {
         type: 'bar',
         data: {
@@ -106,16 +120,6 @@ function exibirGrafico(busca, siglas, dados) {
             }
         }
     });
-    
-    graficoBarras.update();
-}
-
-function limparGrafico(chart) {
-    chart.data.labels = [];
-    chart.data.datasets.forEach((datasets) => {
-        datasets.data = [];
-    });
-    chart.update();
 }
 
 mostrarSituacao()
